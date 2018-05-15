@@ -1,0 +1,172 @@
+\documentclass[pdf]{beamer}
+%\documentclass[handout]{beamer}
+
+
+%\usepackage[]{natbib}
+%\usepackage{mathtools}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{amsmath,amsthm}
+
+
+%\usepackage[]{natbib}
+\makeatletter
+\let\@internalcite\cite
+\def\cite{\def\citeauthoryear##1##2{##1, ##2}\@internalcite}
+\def\shortcite{\def\citeauthoryear##1##2{##2}\@internalcite}
+\def\@biblabel#1{\def\citeauthoryear##1##2{##1, ##2}[#1]\hfill}
+\makeatother
+ \bibliographystyle{named}
+ 
+\usepackage{algpseudocode}
+\usepackage{moreverb}
+\usepackage{algorithm}
+\usepackage{parskip}
+\usepackage{changepage}
+\usepackage{calc}
+
+\newcommand{\tr}[1]{\text{tr}\left\{#1\right\}}
+\setbeamertemplate{footline}[frame number]
+
+
+\setbeamertemplate{headline}{%
+\leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=0.95\paperwidth,ht=2.5ex,dp=1.125ex]{palette quaternary}%
+    \insertsubsectionnavigationhorizontal{\paperwidth}{}{\hfill \color{gray}{\insertsection}\hspace{1em}}
+    \end{beamercolorbox}%
+  }
+}
+\setbeamerfont{section in toc}{size=\scriptsize}
+\setbeamerfont{subsection in toc}{size=\scriptsize}
+%\setbeamertemplate{headline}
+%{
+%  \leavevmode%
+%  
+%  %\hbox{%
+%  \begin{beamercolorbox}[ht=3mm,dp=3.75ex,leftskip=3mm,rightskip=3mm]{section in head/foot}
+%    {\color{black}{\insertsubsection{}} \hfill \color{gray}{{\insertsection}}}
+%  \end{beamercolorbox}%
+% % }%
+%}
+
+
+\beamertemplatenavigationsymbolsempty
+
+\graphicspath{{../Figures/}}
+
+%\renewcommand\labelitemi{}
+\usepackage{enumitem}
+\setlist[description]{leftmargin=*}
+
+
+%\mode<presentation>{}
+%%% preamble
+%\AtBeginSection[]
+%{
+%\begin{frame}{Progress}
+%
+%\begin{center}
+%\begin{minipage}{0.8\textwidth}\tableofcontents[currentsection]
+%\addtocounter{framenumber}{-1}
+%\end{minipage}
+%\end{center}
+%\end{frame}
+%}
+
+
+\mode<presentation>{}
+\AtBeginSubsection[]{\begin{frame}{}
+	\addtocounter{framenumber}{-1}
+  \tableofcontents[hideothersubsections,sectionstyle=show/shaded,subsectionstyle=show/shaded/hide] 
+\end{frame}}
+
+
+\input{../macros.tex}
+
+
+%\setbeamercolor{subsection in toc}{fg=blue}
+%\setbeamerfont{subsection in head}{size=Large}
+
+\begin{document}
+%% title frame
+\title{Unsupervised Learning: Evaluation, Distributed Algorithms, Privacy}
+\subtitle{RPI Doctoral Defense\\
+Advisor: Malik Magdon-Ismail\\
+Committee: Heng Ji, John Mitchell, Lirong Xia}
+\date{14 March 2018}
+\author{Maksim Tsikhanovich}
+{
+\setbeamertemplate{footline}{} 
+\setbeamertemplate{headline}{}
+\setbeamerfont{section in toc}{size=\Large}
+\begin{frame}
+\titlepage
+
+\end{frame}
+{\small
+\begin{frame}{Outline}
+
+\tableofcontents[subsectionstyle=hide]
+\end{frame}
+}
+\addtocounter{framenumber}{-2}
+}
+
+
+
+\section{Facilitating Topic Modeling Research (In Brief)}
+\input{section_sources_version2/topic_model_eval.tex}
+
+\section{Distributed Algorithms for NMF and SVD}
+\input{section_sources_version2/distr_alg.tex}
+
+\section{A Method to Empirically Estimate Privacy}
+\input{section_sources_version2/emp_priv.tex}
+
+\section*{}
+{
+
+\addtocounter{framenumber}{-1}
+
+\begin{frame}{The End}
+\begin{center}\Large Thank you for your attention!\end{center}
+\vspace{1em}
+
+\begin{center}
+\begin{minipage}{0.8\textwidth}\tableofcontents[currentsection]
+\end{minipage}
+\end{center}
+
+\end{frame}
+}
+
+
+{
+\addtocounter{framenumber}{-1}
+
+
+\begin{frame}{Bonus Slides}
+
+\begin{center}\Large Since you asked...\end{center}
+
+\end{frame}
+}
+
+\section{Bonus Slides}
+\input{section_sources_version2/bonus.tex}
+
+
+
+
+
+
+%\renewcommand*{\bibfont}{\scriptsize}
+{
+\addtocounter{framenumber}{-1}
+\section*{References}
+\begin{frame}
+\bibliography{/Users/maks/Dropbox/biblio.bib}
+\end{frame}
+}
+\end{document}
